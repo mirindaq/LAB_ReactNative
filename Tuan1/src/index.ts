@@ -3,8 +3,9 @@
 // import { Car } from "./Bai3";
 // import { Rectangle } from "./Bai4";
 // import { BankAccount } from "./Bai5";
+// import { Book } from "./Bai6";
 
-import { Book } from "./Bai6";
+import { User } from "./Bai7";
 
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
@@ -30,10 +31,15 @@ import { Book } from "./Bai6";
 // bankAccount.withdraw(300);
 
 // 6. Create a class Book with attributes title, author, year.
-const book = new Book("Sach hay", "Hoang", 2025);
-book.displayInfo()
+// const book = new Book("Sach hay", "Hoang", 2025);
+// book.displayInfo()
 
 // 7. Write a class User with private property name and getter/setter.
+const user = new User("Hoang",21);
+console.log("Ten cu: " + user.getName() )
+user.setName("Viet Hoang")
+console.log("Ten moi: " + user.getName() )
+
 // 8. Create a Product class with name, price. Create an array of products and filter products with
 // price > 100.
 // 9. Define an interface Animal with name and method sound().

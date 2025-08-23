@@ -4,8 +4,9 @@
 // import { Car } from "./Bai3";
 // import { Rectangle } from "./Bai4";
 // import { BankAccount } from "./Bai5";
+// import { Book } from "./Bai6";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Bai6_1 = require("./Bai6");
+const Bai7_1 = require("./Bai7");
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
 // person.displayInfo(); 
@@ -25,9 +26,13 @@ const Bai6_1 = require("./Bai6");
 // bankAccount.deposit(200);
 // bankAccount.withdraw(300);
 // 6. Create a class Book with attributes title, author, year.
-const book = new Bai6_1.Book("Sach hay", "Hoang", 2025);
-book.displayInfo();
+// const book = new Book("Sach hay", "Hoang", 2025);
+// book.displayInfo()
 // 7. Write a class User with private property name and getter/setter.
+const user = new Bai7_1.User("Hoang", 21);
+console.log("Ten cu: " + user.getName());
+user.setName("Viet Hoang");
+console.log("Ten moi: " + user.getName());
 // 8. Create a Product class with name, price. Create an array of products and filter products with
 // price > 100.
 // 9. Define an interface Animal with name and method sound().
