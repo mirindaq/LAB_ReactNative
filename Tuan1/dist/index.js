@@ -15,8 +15,9 @@
 // import { Developer, Manager } from "./Bai14";
 // import { Library } from "./Bai15";
 // import { Bike, Car } from "./Bai20";
+// import { Repository } from "./Bai21";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Bai21_1 = require("./Bai21");
+const Bai22_1 = require("./Bai22");
 // import { Cat, Dog } from "./Bai19";
 // import { MathUtil } from "./Bai18";
 // import { Box } from "./Bai16";
@@ -102,15 +103,22 @@ const Bai21_1 = require("./Bai21");
 // const bike = new Bike();
 // bike.drive();
 // 21. Create a generic Repository class with methods add(), getAll().
-const repositoryString = new Bai21_1.Repository();
-repositoryString.add("Item 1");
-repositoryString.add("Item 2");
-const repositoryNumber = new Bai21_1.Repository();
-repositoryNumber.add(100);
-repositoryNumber.add(200);
-console.log("String Repository: ", repositoryString.getAll());
-console.log("Number Repository: ", repositoryNumber.getAll());
+// const repositoryString = new Repository<string>();
+// repositoryString.add("Item 1");
+// repositoryString.add("Item 2");
+// const repositoryNumber = new Repository<number>();
+// repositoryNumber.add(100);
+// repositoryNumber.add(200);
+// console.log("String Repository: ", repositoryString.getAll());
+// console.log("Number Repository: ", repositoryNumber.getAll());
 // 22. Create a class Stack with push, pop, peek, isEmpty methods.
+const stack = new Bai22_1.Stack();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+console.log(stack.peek());
+console.log(stack.pop());
+console.log(stack.isEmpty());
 // 23. Create an interface Payment with method pay(amount). Implement CashPayment and
 // CardPayment.
 // 24. Create an abstract class Appliance with method turnOn(). Implement Fan and AirConditioner.

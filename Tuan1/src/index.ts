@@ -14,8 +14,9 @@
 // import { Developer, Manager } from "./Bai14";
 // import { Library } from "./Bai15";
 // import { Bike, Car } from "./Bai20";
+// import { Repository } from "./Bai21";
 
-import { Repository } from "./Bai21";
+import { Stack } from "./Bai22";
 
 // import { Cat, Dog } from "./Bai19";
 
@@ -129,18 +130,26 @@ import { Repository } from "./Bai21";
 // bike.drive();
 
 // 21. Create a generic Repository class with methods add(), getAll().
-const repositoryString = new Repository<string>();
-repositoryString.add("Item 1");
-repositoryString.add("Item 2");
+// const repositoryString = new Repository<string>();
+// repositoryString.add("Item 1");
+// repositoryString.add("Item 2");
 
-const repositoryNumber = new Repository<number>();
-repositoryNumber.add(100);
-repositoryNumber.add(200);
+// const repositoryNumber = new Repository<number>();
+// repositoryNumber.add(100);
+// repositoryNumber.add(200);
 
-console.log("String Repository: ", repositoryString.getAll());
-console.log("Number Repository: ", repositoryNumber.getAll());
+// console.log("String Repository: ", repositoryString.getAll());
+// console.log("Number Repository: ", repositoryNumber.getAll());
 
 // 22. Create a class Stack with push, pop, peek, isEmpty methods.
+const stack = new Stack();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+console.log(stack.peek());
+console.log(stack.pop());
+console.log(stack.isEmpty());
+
 // 23. Create an interface Payment with method pay(amount). Implement CashPayment and
 // CardPayment.
 // 24. Create an abstract class Appliance with method turnOn(). Implement Fan and AirConditioner.
