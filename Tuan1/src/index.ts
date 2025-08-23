@@ -3,6 +3,7 @@
 // import { Car } from "./Bai3";
 
 import { Rectangle } from "./Bai4";
+import { BankAccount } from "./Bai5";
 
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
@@ -18,11 +19,14 @@ import { Rectangle } from "./Bai4";
 // car.showCarInfo();
 
 // 4. Create a class Rectangle with width and height. Write a method to calculate area and perimeter.
-const rectangle = new Rectangle(10,20);
-console.log(`Area: ${rectangle.calculateArea()}`);
-console.log(`Perimeter: ${rectangle.caculatePerimeter()}`);
+// const rectangle = new Rectangle(10,20);
+// console.log(`Area: ${rectangle.calculateArea()}`);
+// console.log(`Perimeter: ${rectangle.caculatePerimeter()}`);
 
 // 5. Create a class BankAccount with balance. Add methods deposit() and withdraw().
+const bankAccount = new BankAccount(100);
+bankAccount.deposit(200);
+bankAccount.withdraw(300);
 // 6. Create a class Book with attributes title, author, year.
 // 7. Write a class User with private property name and getter/setter.
 // 8. Create a Product class with name, price. Create an array of products and filter products with
