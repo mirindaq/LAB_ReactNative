@@ -14,7 +14,9 @@
 // import { Developer, Manager } from "./Bai14";
 // import { Library } from "./Bai15";
 
-import { MathUtil } from "./Bai18";
+import { Cat, Dog } from "./Bai19";
+
+// import { MathUtil } from "./Bai18";
 
 // import { Box } from "./Bai16";
 
@@ -105,11 +107,16 @@ import { MathUtil } from "./Bai18";
 //logger
 
 // 18. Create a static class MathUtil with methods add(), subtract(), multiply(), divide().
-console.log("MathUtil Add: " + MathUtil.add(10,5));
-console.log("MathUtil Subtract: " + MathUtil.subtract(10,5));
-console.log("MathUtil Multiply: " + MathUtil.multiply(10,5));
-console.log("MathUtil Divide: " + MathUtil.divide(10,5));
+// console.log("MathUtil Add: " + MathUtil.add(10,5));
+// console.log("MathUtil Subtract: " + MathUtil.subtract(10,5));
+// console.log("MathUtil Multiply: " + MathUtil.multiply(10,5));
+// console.log("MathUtil Divide: " + MathUtil.divide(10,5));
+
 // 19. Demonstrate method overriding using polymorphism with Animal and subclasses.
+const dog = new Dog();
+dog.speak();
+const cat = new Cat();
+cat.speak();
 // 20. Write a Vehicle interface and implement it in Car and Bike classes.
 // 21. Create a generic Repository class with methods add(), getAll().
 // 22. Create a class Stack with push, pop, peek, isEmpty methods.
