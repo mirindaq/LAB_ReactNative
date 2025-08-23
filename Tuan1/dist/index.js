@@ -18,7 +18,8 @@
 // import { Repository } from "./Bai21";
 // import { Teacher } from "./Bai27";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Bai28_1 = require("./Bai28");
+// import { Cat, Dog } from "./Bai28";
+const Bai29_1 = require("./Bai29");
 // import { Shape } from "./Bai25";
 // import { Order } from "./Bai26";
 // import { Product } from "./Bai8";
@@ -148,9 +149,13 @@ const Bai28_1 = require("./Bai28");
 // const teacher = new Teacher("Hoang", 21, "Toan");
 // teacher.introduce();
 // 28. Create a class Animal with protected method makeSound(). Extend Dog and Cat to override it.
-const dog = new Bai28_1.Dog();
-dog.makeSound();
-const cat = new Bai28_1.Cat();
-cat.makeSound();
+// const dog = new Dog();
+// dog.makeSound();
+// const cat = new Cat();
+// cat.makeSound();
 // 29. Create an interface Movable with method move(). Implement it in Car and Robot.
+const car = new Bai29_1.Car();
+car.move();
+const robot = new Bai29_1.Robot();
+robot.move();
 // 30. Create a class School with list of Students and Teachers. Add method to display info.
