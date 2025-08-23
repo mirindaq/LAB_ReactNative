@@ -18,7 +18,10 @@
 // import { Teacher } from "./Bai27";
 
 // import { Cat, Dog } from "./Bai28";
-import { Car, Robot } from "./Bai29";
+import { Student } from "./Bai2";
+import { Teacher } from "./Bai27";
+// import { Car, Robot } from "./Bai29";
+import { School } from "./Bai30";
 
 // import { Shape } from "./Bai25";
 // import { Order } from "./Bai26";
@@ -200,9 +203,15 @@ import { Car, Robot } from "./Bai29";
 // const cat = new Cat();
 // cat.makeSound();
 // 29. Create an interface Movable with method move(). Implement it in Car and Robot.
-const car = new Car();
-car.move();
-const robot = new Robot();
-robot.move();
+// const car = new Car();
+// car.move();
+// const robot = new Robot();
+// robot.move();
 
 // 30. Create a class School with list of Students and Teachers. Add method to display info.
+const school = new School();
+school.addStudent(new Student("Hoang", 21, "A"));
+school.addStudent(new Student("Viet Hoang", 18, "B"));
+school.addTeacher(new Teacher("Minh", 50, "Toan"));
+school.addTeacher(new Teacher("Minh Anh", 52, "Van"));
+school.displayInfo();

@@ -19,7 +19,10 @@
 // import { Teacher } from "./Bai27";
 Object.defineProperty(exports, "__esModule", { value: true });
 // import { Cat, Dog } from "./Bai28";
-const Bai29_1 = require("./Bai29");
+const Bai2_1 = require("./Bai2");
+const Bai27_1 = require("./Bai27");
+// import { Car, Robot } from "./Bai29";
+const Bai30_1 = require("./Bai30");
 // import { Shape } from "./Bai25";
 // import { Order } from "./Bai26";
 // import { Product } from "./Bai8";
@@ -146,7 +149,7 @@ const Bai29_1 = require("./Bai29");
 // order.addProduct(new Product("Product 2", 20));
 // console.log(order.calculateTotalPrice());
 // 27. Create a class Teacher that extends Person. Add subject attribute and introduce method.
-// const teacher = new Teacher("Hoang", 21, "Toan");
+// const teacher = new Teacher("Hoang", 21, "Toan");S
 // teacher.introduce();
 // 28. Create a class Animal with protected method makeSound(). Extend Dog and Cat to override it.
 // const dog = new Dog();
@@ -154,8 +157,14 @@ const Bai29_1 = require("./Bai29");
 // const cat = new Cat();
 // cat.makeSound();
 // 29. Create an interface Movable with method move(). Implement it in Car and Robot.
-const car = new Bai29_1.Car();
-car.move();
-const robot = new Bai29_1.Robot();
-robot.move();
+// const car = new Car();
+// car.move();
+// const robot = new Robot();
+// robot.move();
 // 30. Create a class School with list of Students and Teachers. Add method to display info.
+const school = new Bai30_1.School();
+school.addStudent(new Bai2_1.Student("Hoang", 21, "A"));
+school.addStudent(new Bai2_1.Student("Viet Hoang", 18, "B"));
+school.addTeacher(new Bai27_1.Teacher("Minh", 50, "Toan"));
+school.addTeacher(new Bai27_1.Teacher("Minh Anh", 52, "Van"));
+school.displayInfo();
