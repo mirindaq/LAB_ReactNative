@@ -1,3 +1,5 @@
+// import { Account } from './Bai10';
+// import { Animal } from './Bai9';
 // import { Product } from './Bai8';
 // import { Person } from "./Bai1.js";
 // import { Student } from "./Bai2.js";
@@ -51,9 +53,11 @@
 
 
 // 9. Define an interface Animal with name and method sound().
-
+// Animal
 
 // 10. Create a class Account with public, private and readonly fields.
+// Account
+
 // 11. Create a base class Animal. Extend Dog and Cat classes with methods bark() and meow().
 // 12. Define interfaces Flyable and Swimmable. Implement them in Bird and Fish classes.
 // 13. Create an abstract class Shape with method area(). Implement Square and Circle.
