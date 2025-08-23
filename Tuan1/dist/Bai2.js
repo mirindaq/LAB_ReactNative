@@ -5,7 +5,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Student = void 0;
 const Bai1_1 = require("./Bai1");
 class Student extends Bai1_1.Person {
-    grade;
     constructor(name, age, grade) {
         super(name, age);
         this.grade = grade;
@@ -15,4 +14,3 @@ class Student extends Bai1_1.Person {
     }
 }
 exports.Student = Student;
-//# sourceMappingURL=Bai2.js.map

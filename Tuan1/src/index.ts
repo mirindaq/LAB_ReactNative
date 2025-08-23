@@ -1,9 +1,10 @@
 // import { Person } from "./Bai1.js";
 // import { Student } from "./Bai2.js";
 // import { Car } from "./Bai3";
+// import { Rectangle } from "./Bai4";
+// import { BankAccount } from "./Bai5";
 
-import { Rectangle } from "./Bai4";
-import { BankAccount } from "./Bai5";
+import { Book } from "./Bai6";
 
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
@@ -24,10 +25,14 @@ import { BankAccount } from "./Bai5";
 // console.log(`Perimeter: ${rectangle.caculatePerimeter()}`);
 
 // 5. Create a class BankAccount with balance. Add methods deposit() and withdraw().
-const bankAccount = new BankAccount(100);
-bankAccount.deposit(200);
-bankAccount.withdraw(300);
+// const bankAccount = new BankAccount(100);
+// bankAccount.deposit(200);
+// bankAccount.withdraw(300);
+
 // 6. Create a class Book with attributes title, author, year.
+const book = new Book("Sach hay", "Hoang", 2025);
+book.displayInfo()
+
 // 7. Write a class User with private property name and getter/setter.
 // 8. Create a Product class with name, price. Create an array of products and filter products with
 // price > 100.

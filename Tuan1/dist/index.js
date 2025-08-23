@@ -2,8 +2,10 @@
 // import { Person } from "./Bai1.js";
 // import { Student } from "./Bai2.js";
 // import { Car } from "./Bai3";
+// import { Rectangle } from "./Bai4";
+// import { BankAccount } from "./Bai5";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Bai5_1 = require("./Bai5");
+const Bai6_1 = require("./Bai6");
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
 // person.displayInfo(); 
@@ -19,10 +21,12 @@ const Bai5_1 = require("./Bai5");
 // console.log(`Area: ${rectangle.calculateArea()}`);
 // console.log(`Perimeter: ${rectangle.caculatePerimeter()}`);
 // 5. Create a class BankAccount with balance. Add methods deposit() and withdraw().
-const bankAccount = new Bai5_1.BankAccount(100);
-bankAccount.deposit(200);
-bankAccount.withdraw(300);
+// const bankAccount = new BankAccount(100);
+// bankAccount.deposit(200);
+// bankAccount.withdraw(300);
 // 6. Create a class Book with attributes title, author, year.
+const book = new Bai6_1.Book("Sach hay", "Hoang", 2025);
+book.displayInfo();
 // 7. Write a class User with private property name and getter/setter.
 // 8. Create a Product class with name, price. Create an array of products and filter products with
 // price > 100.
@@ -49,4 +53,3 @@ bankAccount.withdraw(300);
 // 28. Create a class Animal with protected method makeSound(). Extend Dog and Cat to override it.
 // 29. Create an interface Movable with method move(). Implement it in Car and Robot.
 // 30. Create a class School with list of Students and Teachers. Add method to display info.
-//# sourceMappingURL=index.js.map
