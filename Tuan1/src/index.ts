@@ -1,4 +1,4 @@
-import { Product } from './Bai8';
+// import { Product } from './Bai8';
 // import { Person } from "./Bai1.js";
 // import { Student } from "./Bai2.js";
 // import { Car } from "./Bai3";
@@ -42,15 +42,17 @@ import { Product } from './Bai8';
 
 // 8. Create a Product class with name, price. Create an array of products and filter products with
 // price > 100.
-const products: Product[] = new Array();
-products.push(new Product("Banh", 150));
-products.push(new Product("Keo", 50));
-products.push(new Product("Ho lo", 200));
+// const products: Product[] = new Array();
+// products.push(new Product("Banh", 150));
+// products.push(new Product("Keo", 50));
+// products.push(new Product("Ho lo", 200));
 
-console.log(products.filter((x) =>(x.price > 100)))
+// console.log(products.filter((x) =>(x.price > 100)))
 
 
 // 9. Define an interface Animal with name and method sound().
+
+
 // 10. Create a class Account with public, private and readonly fields.
 // 11. Create a base class Animal. Extend Dog and Cat classes with methods bark() and meow().
 // 12. Define interfaces Flyable and Swimmable. Implement them in Bird and Fish classes.

@@ -6,8 +6,5 @@ class Product {
         this.name = name;
         this.price = price;
     }
-    displayInfo() {
-        console.log(`Name: ${this.name}, Price: ${this.price}`);
-    }
 }
 exports.Product = Product;
