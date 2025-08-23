@@ -1,12 +1,13 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Bai8_1 = require("./Bai8");
 // import { Person } from "./Bai1.js";
 // import { Student } from "./Bai2.js";
 // import { Car } from "./Bai3";
 // import { Rectangle } from "./Bai4";
 // import { BankAccount } from "./Bai5";
 // import { Book } from "./Bai6";
-Object.defineProperty(exports, "__esModule", { value: true });
-const Bai7_1 = require("./Bai7");
+// import { User } from "./Bai7";
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
 // person.displayInfo(); 
@@ -29,12 +30,17 @@ const Bai7_1 = require("./Bai7");
 // const book = new Book("Sach hay", "Hoang", 2025);
 // book.displayInfo()
 // 7. Write a class User with private property name and getter/setter.
-const user = new Bai7_1.User("Hoang", 21);
-console.log("Ten cu: " + user.getName());
-user.setName("Viet Hoang");
-console.log("Ten moi: " + user.getName());
+// const user = new User("Hoang",21);
+// console.log("Ten cu: " + user.getName() )
+// user.setName("Viet Hoang")
+// console.log("Ten moi: " + user.getName() )
 // 8. Create a Product class with name, price. Create an array of products and filter products with
 // price > 100.
+const products = new Array();
+products.push(new Bai8_1.Product("Banh", 150));
+products.push(new Bai8_1.Product("Keo", 50));
+products.push(new Bai8_1.Product("Ho lo", 200));
+console.log(products.filter((x) => (x.price > 100)));
 // 9. Define an interface Animal with name and method sound().
 // 10. Create a class Account with public, private and readonly fields.
 // 11. Create a base class Animal. Extend Dog and Cat classes with methods bark() and meow().
