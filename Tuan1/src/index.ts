@@ -14,7 +14,9 @@
 // import { Developer, Manager } from "./Bai14";
 // import { Library } from "./Bai15";
 
-import { Cat, Dog } from "./Bai19";
+import { Bike, Car } from "./Bai20";
+
+// import { Cat, Dog } from "./Bai19";
 
 // import { MathUtil } from "./Bai18";
 
@@ -113,11 +115,18 @@ import { Cat, Dog } from "./Bai19";
 // console.log("MathUtil Divide: " + MathUtil.divide(10,5));
 
 // 19. Demonstrate method overriding using polymorphism with Animal and subclasses.
-const dog = new Dog();
-dog.speak();
-const cat = new Cat();
-cat.speak();
+// const dog = new Dog();
+// dog.speak();
+// const cat = new Cat();
+// cat.speak();
+
+
 // 20. Write a Vehicle interface and implement it in Car and Bike classes.
+const car = new Car();
+car.drive();
+const bike = new Bike();
+bike.drive();
+
 // 21. Create a generic Repository class with methods add(), getAll().
 // 22. Create a class Stack with push, pop, peek, isEmpty methods.
 // 23. Create an interface Payment with method pay(amount). Implement CashPayment and

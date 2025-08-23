@@ -15,7 +15,8 @@
 // import { Developer, Manager } from "./Bai14";
 // import { Library } from "./Bai15";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Bai19_1 = require("./Bai19");
+const Bai20_1 = require("./Bai20");
+// import { Cat, Dog } from "./Bai19";
 // import { MathUtil } from "./Bai18";
 // import { Box } from "./Bai16";
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
@@ -90,11 +91,15 @@ const Bai19_1 = require("./Bai19");
 // console.log("MathUtil Multiply: " + MathUtil.multiply(10,5));
 // console.log("MathUtil Divide: " + MathUtil.divide(10,5));
 // 19. Demonstrate method overriding using polymorphism with Animal and subclasses.
-const dog = new Bai19_1.Dog();
-dog.speak();
-const cat = new Bai19_1.Cat();
-cat.speak();
+// const dog = new Dog();
+// dog.speak();
+// const cat = new Cat();
+// cat.speak();
 // 20. Write a Vehicle interface and implement it in Car and Bike classes.
+const car = new Bai20_1.Car();
+car.drive();
+const bike = new Bai20_1.Bike();
+bike.drive();
 // 21. Create a generic Repository class with methods add(), getAll().
 // 22. Create a class Stack with push, pop, peek, isEmpty methods.
 // 23. Create an interface Payment with method pay(amount). Implement CashPayment and
