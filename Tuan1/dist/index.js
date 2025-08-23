@@ -10,7 +10,8 @@
 // import { Book } from "./Bai6";
 // import { User } from "./Bai7";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Bai11_1 = require("./Bai11");
+const Bai12_1 = require("./Bai12");
+// import { Cat, Dog } from "./Bai11";
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
 // person.displayInfo(); 
@@ -49,11 +50,15 @@ const Bai11_1 = require("./Bai11");
 // 10. Create a class Account with public, private and readonly fields.
 // Account
 // 11. Create a base class Animal. Extend Dog and Cat classes with methods bark() and meow().
-const dog = new Bai11_1.Dog("Cho");
-dog.bark();
-const cat = new Bai11_1.Cat("Meo");
-cat.bark();
+// const dog = new Dog("Cho");
+// dog.bark();
+// const cat = new Cat("Meo");
+// cat.bark();
 // 12. Define interfaces Flyable and Swimmable. Implement them in Bird and Fish classes.
+const bird = new Bai12_1.Bird();
+bird.fly();
+const fish = new Bai12_1.Fish();
+fish.swim();
 // 13. Create an abstract class Shape with method area(). Implement Square and Circle.
 // 14. Create a base class Employee. Extend Manager and Developer with specific methods.
 // 15. Create a Library class that can store Book and User objects. Add method to add books.
