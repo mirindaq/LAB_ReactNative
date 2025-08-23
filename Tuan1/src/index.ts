@@ -16,7 +16,9 @@
 // import { Bike, Car } from "./Bai20";
 // import { Repository } from "./Bai21";
 
-import { CardPayment, CashPayment } from "./Bai23";
+import { AirConditioner, Fan } from "./Bai24";
+
+// import { CardPayment, CashPayment } from "./Bai23";
 
 // import { Stack } from "./Bai22";
 
@@ -155,13 +157,20 @@ import { CardPayment, CashPayment } from "./Bai23";
 // 23. Create an interface Payment with method pay(amount). Implement CashPayment and
 // CardPayment.
 
-const cashPayment = new CashPayment();
-cashPayment.pay(100);
+// const cashPayment = new CashPayment();
+// cashPayment.pay(100);
 
-const cardPayment = new CardPayment();
-cardPayment.pay(200);
+// const cardPayment = new CardPayment();
+// cardPayment.pay(200);
 
 // 24. Create an abstract class Appliance with method turnOn(). Implement Fan and AirConditioner.
+
+const fan = new Fan();
+fan.turnOn();
+
+const airConditioner = new AirConditioner();
+airConditioner.turnOn();
+
 // 25. Create a class Shape with a static method describe().
 // 26. Create a class Order with list of products. Add method to calculate total price.
 // 27. Create a class Teacher that extends Person. Add subject attribute and introduce method.
