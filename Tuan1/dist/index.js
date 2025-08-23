@@ -17,7 +17,8 @@
 // import { Bike, Car } from "./Bai20";
 // import { Repository } from "./Bai21";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Bai25_1 = require("./Bai25");
+const Bai26_1 = require("./Bai26");
+const Bai8_1 = require("./Bai8");
 // import { AirConditioner, Fan } from "./Bai24";
 // import { CardPayment, CashPayment } from "./Bai23";
 // import { Stack } from "./Bai22";
@@ -134,8 +135,12 @@ const Bai25_1 = require("./Bai25");
 // const airConditioner = new AirConditioner();
 // airConditioner.turnOn();
 // 25. Create a class Shape with a static method describe().
-console.log(Bai25_1.Shape.describe());
+// console.log(Shape.describe());
 // 26. Create a class Order with list of products. Add method to calculate total price.
+const order = new Bai26_1.Order();
+order.addProduct(new Bai8_1.Product("Product 1", 10));
+order.addProduct(new Bai8_1.Product("Product 2", 20));
+console.log(order.calculateTotalPrice());
 // 27. Create a class Teacher that extends Person. Add subject attribute and introduce method.
 // 28. Create a class Animal with protected method makeSound(). Extend Dog and Cat to override it.
 // 29. Create an interface Movable with method move(). Implement it in Car and Robot.

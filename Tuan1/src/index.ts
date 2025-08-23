@@ -17,6 +17,8 @@
 // import { Repository } from "./Bai21";
 
 import { Shape } from "./Bai25";
+import { Order } from "./Bai26";
+import { Product } from "./Bai8";
 
 // import { AirConditioner, Fan } from "./Bai24";
 
@@ -175,9 +177,14 @@ import { Shape } from "./Bai25";
 
 // 25. Create a class Shape with a static method describe().
 
-console.log(Shape.describe());
+// console.log(Shape.describe());
 
 // 26. Create a class Order with list of products. Add method to calculate total price.
+const order = new Order();
+order.addProduct(new Product("Product 1", 10));
+order.addProduct(new Product("Product 2", 20));
+console.log(order.calculateTotalPrice());
+
 // 27. Create a class Teacher that extends Person. Add subject attribute and introduce method.
 
 // 28. Create a class Animal with protected method makeSound(). Extend Dog and Cat to override it.
