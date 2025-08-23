@@ -14,7 +14,7 @@
 // import { Developer, Manager } from "./Bai14";
 // import { Library } from "./Bai15";
 
-import { Box } from "./Bai16";
+// import { Box } from "./Bai16";
 
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
@@ -94,12 +94,15 @@ import { Box } from "./Bai16";
 // const library = new Library();
 
 // 16. Create a generic class Box that can store any type of value.
-const boxNumber = new Box<number>(10);
-console.log("boxNumber: " + boxNumber.getValue());
-const boxString = new Box<string>("Hello");
-console.log("boxString: " + boxString.getValue());
+// const boxNumber = new Box<number>(10);
+// console.log("boxNumber: " + boxNumber.getValue());
+// const boxString = new Box<string>("Hello");
+// console.log("boxString: " + boxString.getValue());
 
 // 17. Write a singleton Logger class that logs messages to console.
+//logger
+
+
 // 18. Create a static class MathUtil with methods add(), subtract(), multiply(), divide().
 // 19. Demonstrate method overriding using polymorphism with Animal and subclasses.
 // 20. Write a Vehicle interface and implement it in Car and Bike classes.

@@ -14,8 +14,7 @@
 // import { Circle, Square } from "./Bai13";
 // import { Developer, Manager } from "./Bai14";
 // import { Library } from "./Bai15";
-Object.defineProperty(exports, "__esModule", { value: true });
-const Bai16_1 = require("./Bai16");
+// import { Box } from "./Bai16";
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
 // person.displayInfo(); 
@@ -76,11 +75,12 @@ const Bai16_1 = require("./Bai16");
 // 15. Create a Library class that can store Book and User objects. Add method to add books.
 // const library = new Library();
 // 16. Create a generic class Box that can store any type of value.
-const boxNumber = new Bai16_1.Box(10);
-console.log("boxNumber: " + boxNumber.getValue());
-const boxString = new Bai16_1.Box("Hello");
-console.log("boxString: " + boxString.getValue());
+// const boxNumber = new Box<number>(10);
+// console.log("boxNumber: " + boxNumber.getValue());
+// const boxString = new Box<string>("Hello");
+// console.log("boxString: " + boxString.getValue());
 // 17. Write a singleton Logger class that logs messages to console.
+//logger
 // 18. Create a static class MathUtil with methods add(), subtract(), multiply(), divide().
 // 19. Demonstrate method overriding using polymorphism with Animal and subclasses.
 // 20. Write a Vehicle interface and implement it in Car and Bike classes.
