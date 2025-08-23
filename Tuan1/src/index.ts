@@ -16,7 +16,9 @@
 // import { Bike, Car } from "./Bai20";
 // import { Repository } from "./Bai21";
 
-import { Stack } from "./Bai22";
+import { CardPayment, CashPayment } from "./Bai23";
+
+// import { Stack } from "./Bai22";
 
 // import { Cat, Dog } from "./Bai19";
 
@@ -142,16 +144,23 @@ import { Stack } from "./Bai22";
 // console.log("Number Repository: ", repositoryNumber.getAll());
 
 // 22. Create a class Stack with push, pop, peek, isEmpty methods.
-const stack = new Stack();
-stack.push(1);
-stack.push(2);
-stack.push(3);
-console.log(stack.peek());
-console.log(stack.pop());
-console.log(stack.isEmpty());
+// const stack = new Stack();
+// stack.push(1);
+// stack.push(2);
+// stack.push(3);
+// console.log(stack.peek());
+// console.log(stack.pop());
+// console.log(stack.isEmpty());
 
 // 23. Create an interface Payment with method pay(amount). Implement CashPayment and
 // CardPayment.
+
+const cashPayment = new CashPayment();
+cashPayment.pay(100);
+
+const cardPayment = new CardPayment();
+cardPayment.pay(200);
+
 // 24. Create an abstract class Appliance with method turnOn(). Implement Fan and AirConditioner.
 // 25. Create a class Shape with a static method describe().
 // 26. Create a class Order with list of products. Add method to calculate total price.

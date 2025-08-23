@@ -17,7 +17,8 @@
 // import { Bike, Car } from "./Bai20";
 // import { Repository } from "./Bai21";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Bai22_1 = require("./Bai22");
+const Bai23_1 = require("./Bai23");
+// import { Stack } from "./Bai22";
 // import { Cat, Dog } from "./Bai19";
 // import { MathUtil } from "./Bai18";
 // import { Box } from "./Bai16";
@@ -112,15 +113,19 @@ const Bai22_1 = require("./Bai22");
 // console.log("String Repository: ", repositoryString.getAll());
 // console.log("Number Repository: ", repositoryNumber.getAll());
 // 22. Create a class Stack with push, pop, peek, isEmpty methods.
-const stack = new Bai22_1.Stack();
-stack.push(1);
-stack.push(2);
-stack.push(3);
-console.log(stack.peek());
-console.log(stack.pop());
-console.log(stack.isEmpty());
+// const stack = new Stack();
+// stack.push(1);
+// stack.push(2);
+// stack.push(3);
+// console.log(stack.peek());
+// console.log(stack.pop());
+// console.log(stack.isEmpty());
 // 23. Create an interface Payment with method pay(amount). Implement CashPayment and
 // CardPayment.
+const cashPayment = new Bai23_1.CashPayment();
+cashPayment.pay(100);
+const cardPayment = new Bai23_1.CardPayment();
+cardPayment.pay(200);
 // 24. Create an abstract class Appliance with method turnOn(). Implement Fan and AirConditioner.
 // 25. Create a class Shape with a static method describe().
 // 26. Create a class Order with list of products. Add method to calculate total price.
