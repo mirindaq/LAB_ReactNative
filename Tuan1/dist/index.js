@@ -14,6 +14,8 @@
 // import { Circle, Square } from "./Bai13";
 // import { Developer, Manager } from "./Bai14";
 // import { Library } from "./Bai15";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Bai18_1 = require("./Bai18");
 // import { Box } from "./Bai16";
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
@@ -82,6 +84,10 @@
 // 17. Write a singleton Logger class that logs messages to console.
 //logger
 // 18. Create a static class MathUtil with methods add(), subtract(), multiply(), divide().
+console.log("MathUtil Add: " + Bai18_1.MathUtil.add(10, 5));
+console.log("MathUtil Subtract: " + Bai18_1.MathUtil.subtract(10, 5));
+console.log("MathUtil Multiply: " + Bai18_1.MathUtil.multiply(10, 5));
+console.log("MathUtil Divide: " + Bai18_1.MathUtil.divide(10, 5));
 // 19. Demonstrate method overriding using polymorphism with Animal and subclasses.
 // 20. Write a Vehicle interface and implement it in Car and Bike classes.
 // 21. Create a generic Repository class with methods add(), getAll().
