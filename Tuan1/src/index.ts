@@ -15,8 +15,9 @@
 // import { Library } from "./Bai15";
 // import { Bike, Car } from "./Bai20";
 // import { Repository } from "./Bai21";
+// import { Teacher } from "./Bai27";
 
-import { Teacher } from "./Bai27";
+import { Cat, Dog } from "./Bai28";
 
 // import { Shape } from "./Bai25";
 // import { Order } from "./Bai26";
@@ -188,8 +189,14 @@ import { Teacher } from "./Bai27";
 // console.log(order.calculateTotalPrice());
 
 // 27. Create a class Teacher that extends Person. Add subject attribute and introduce method.
-const teacher = new Teacher("Hoang", 21, "Toan");
-teacher.introduce();
+// const teacher = new Teacher("Hoang", 21, "Toan");
+// teacher.introduce();
+
 // 28. Create a class Animal with protected method makeSound(). Extend Dog and Cat to override it.
+
+const dog = new Dog();
+dog.makeSound();
+const cat = new Cat();
+cat.makeSound();
 // 29. Create an interface Movable with method move(). Implement it in Car and Robot.
 // 30. Create a class School with list of Students and Teachers. Add method to display info.
