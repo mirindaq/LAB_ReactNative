@@ -13,8 +13,9 @@
 // import { Circle, Square } from "./Bai13";
 // import { Developer, Manager } from "./Bai14";
 // import { Library } from "./Bai15";
+// import { Bike, Car } from "./Bai20";
 
-import { Bike, Car } from "./Bai20";
+import { Repository } from "./Bai21";
 
 // import { Cat, Dog } from "./Bai19";
 
@@ -122,12 +123,23 @@ import { Bike, Car } from "./Bai20";
 
 
 // 20. Write a Vehicle interface and implement it in Car and Bike classes.
-const car = new Car();
-car.drive();
-const bike = new Bike();
-bike.drive();
+// const car = new Car();
+// car.drive();
+// const bike = new Bike();
+// bike.drive();
 
 // 21. Create a generic Repository class with methods add(), getAll().
+const repositoryString = new Repository<string>();
+repositoryString.add("Item 1");
+repositoryString.add("Item 2");
+
+const repositoryNumber = new Repository<number>();
+repositoryNumber.add(100);
+repositoryNumber.add(200);
+
+console.log("String Repository: ", repositoryString.getAll());
+console.log("Number Repository: ", repositoryNumber.getAll());
+
 // 22. Create a class Stack with push, pop, peek, isEmpty methods.
 // 23. Create an interface Payment with method pay(amount). Implement CashPayment and
 // CardPayment.
