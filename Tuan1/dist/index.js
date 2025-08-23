@@ -11,8 +11,9 @@
 // import { User } from "./Bai7";
 // import { Bird, Fish } from "./Bai12";
 // import { Cat, Dog } from "./Bai11";
+// import { Circle, Square } from "./Bai13";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Bai13_1 = require("./Bai13");
+const Bai14_1 = require("./Bai14");
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
 // person.displayInfo(); 
@@ -61,11 +62,15 @@ const Bai13_1 = require("./Bai13");
 // const fish = new Fish();
 // fish.swim();
 // 13. Create an abstract class Shape with method area(). Implement Square and Circle.
-const square = new Bai13_1.Square(10);
-console.log(`Area of square: ${square.area()}`);
-const circle = new Bai13_1.Circle(10);
-console.log(`Area of circle: ${circle.area()}`);
+// const square = new Square(10);
+// console.log(`Area of square: ${square.area()}`);
+// const circle = new Circle(10);
+// console.log(`Area of circle: ${circle.area()}`);
 // 14. Create a base class Employee. Extend Manager and Developer with specific methods.
+const manager = new Bai14_1.Manager("Hoang");
+manager.manage();
+const developer = new Bai14_1.Developer("Viet Hoang");
+developer.develop();
 // 15. Create a Library class that can store Book and User objects. Add method to add books.
 // 16. Create a generic class Box that can store any type of value.
 // 17. Write a singleton Logger class that logs messages to console.

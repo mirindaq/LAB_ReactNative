@@ -10,8 +10,9 @@
 // import { User } from "./Bai7";
 // import { Bird, Fish } from "./Bai12";
 // import { Cat, Dog } from "./Bai11";
+// import { Circle, Square } from "./Bai13";
 
-import { Circle, Square } from "./Bai13";
+import { Developer, Manager } from "./Bai14";
 
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
@@ -76,12 +77,17 @@ import { Circle, Square } from "./Bai13";
 
 
 // 13. Create an abstract class Shape with method area(). Implement Square and Circle.
-const square = new Square(10);
-console.log(`Area of square: ${square.area()}`);
-const circle = new Circle(10);
-console.log(`Area of circle: ${circle.area()}`);
+// const square = new Square(10);
+// console.log(`Area of square: ${square.area()}`);
+// const circle = new Circle(10);
+// console.log(`Area of circle: ${circle.area()}`);
 
 // 14. Create a base class Employee. Extend Manager and Developer with specific methods.
+const manager = new Manager("Hoang");
+manager.manage();
+const developer = new Developer("Viet Hoang");
+developer.develop();
+
 // 15. Create a Library class that can store Book and User objects. Add method to add books.
 // 16. Create a generic class Box that can store any type of value.
 // 17. Write a singleton Logger class that logs messages to console.
