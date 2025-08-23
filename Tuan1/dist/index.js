@@ -17,7 +17,8 @@
 // import { Bike, Car } from "./Bai20";
 // import { Repository } from "./Bai21";
 Object.defineProperty(exports, "__esModule", { value: true });
-const Bai24_1 = require("./Bai24");
+const Bai25_1 = require("./Bai25");
+// import { AirConditioner, Fan } from "./Bai24";
 // import { CardPayment, CashPayment } from "./Bai23";
 // import { Stack } from "./Bai22";
 // import { Cat, Dog } from "./Bai19";
@@ -128,11 +129,12 @@ const Bai24_1 = require("./Bai24");
 // const cardPayment = new CardPayment();
 // cardPayment.pay(200);
 // 24. Create an abstract class Appliance with method turnOn(). Implement Fan and AirConditioner.
-const fan = new Bai24_1.Fan();
-fan.turnOn();
-const airConditioner = new Bai24_1.AirConditioner();
-airConditioner.turnOn();
+// const fan = new Fan();
+// fan.turnOn();
+// const airConditioner = new AirConditioner();
+// airConditioner.turnOn();
 // 25. Create a class Shape with a static method describe().
+console.log(Bai25_1.Shape.describe());
 // 26. Create a class Order with list of products. Add method to calculate total price.
 // 27. Create a class Teacher that extends Person. Add subject attribute and introduce method.
 // 28. Create a class Animal with protected method makeSound(). Extend Dog and Cat to override it.
