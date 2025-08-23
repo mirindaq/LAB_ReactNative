@@ -1,15 +1,18 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 // import { Person } from "./Bai1.js";
-const Bai2_js_1 = require("./Bai2.js");
+// import { Student } from "./Bai2.js";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Bai3_1 = require("./Bai3");
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
 // person.displayInfo(); 
 // 2. Write a class Student extending Person with an additional attribute grade. Add a method to
 // display all info.
-const student = new Bai2_js_1.Student("Hoang", 21, "A");
-student.displayAllInfo();
+// const student = new Student("Hoang", 21, "A");
+// student.displayAllInfo();
 // 3. Create a class Car with properties brand, model, year. Write a method to show car info.
+const car = new Bai3_1.Car("Honda", "UD17", 2025);
+car.showCarInfo();
 // 4. Create a class Rectangle with width and height. Write a method to calculate area and perimeter.
 // 5. Create a class BankAccount with balance. Add methods deposit() and withdraw().
 // 6. Create a class Book with attributes title, author, year.

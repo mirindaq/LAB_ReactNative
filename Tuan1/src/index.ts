@@ -1,5 +1,7 @@
 // import { Person } from "./Bai1.js";
-import { Student } from "./Bai2.js";
+// import { Student } from "./Bai2.js";
+
+import { Car } from "./Bai3";
 
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
@@ -7,11 +9,13 @@ import { Student } from "./Bai2.js";
 
 // 2. Write a class Student extending Person with an additional attribute grade. Add a method to
 // display all info.
-const student = new Student("Hoang", 21, "A");
-student.displayAllInfo();
-
+// const student = new Student("Hoang", 21, "A");
+// student.displayAllInfo();
 
 // 3. Create a class Car with properties brand, model, year. Write a method to show car info.
+const car = new Car("Honda", "UD17", 2025);
+car.showCarInfo();
+
 // 4. Create a class Rectangle with width and height. Write a method to calculate area and perimeter.
 // 5. Create a class BankAccount with balance. Add methods deposit() and withdraw().
 // 6. Create a class Book with attributes title, author, year.
