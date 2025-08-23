@@ -9,6 +9,8 @@
 // import { Book } from "./Bai6";
 // import { User } from "./Bai7";
 
+import { Cat, Dog } from "./Bai11";
+
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
 // const person = new Person("Hoang", 21);
 // person.displayInfo(); 
@@ -59,6 +61,11 @@
 // Account
 
 // 11. Create a base class Animal. Extend Dog and Cat classes with methods bark() and meow().
+const dog = new Dog("Cho");
+dog.bark();
+const cat = new Cat("Meo");
+cat.bark();
+
 // 12. Define interfaces Flyable and Swimmable. Implement them in Bird and Fish classes.
 // 13. Create an abstract class Shape with method area(). Implement Square and Circle.
 // 14. Create a base class Employee. Extend Manager and Developer with specific methods.
