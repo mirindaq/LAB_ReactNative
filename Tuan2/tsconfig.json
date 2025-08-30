@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es6", /* Chỉ định phiên bản JavaScript mà TypeScript sẽ biên dịch ra */
+    "target": "ES2018",  // Use ES2018 or later
+    "lib": ["ES2018", "DOM"],  // Include ES2018 and any other libraries you may need
+    "strict": true,  // Optional: Enable strict mode for more robust code
+    "moduleResolution": "node",  // Optional: Use Node module resolution strategy
     "module": "commonjs", /* Sử dụng module CommonJS */
-    "strict": true, /* Bật kiểm tra strict */
     "esModuleInterop": true, /* Hỗ trợ import/export ES Modules */
     "outDir": "./dist", /* Thư mục chứa các tệp JavaScript đã biên dịch */
     "rootDir": "./src", /* Thư mục gốc chứa tệp TypeScript */
