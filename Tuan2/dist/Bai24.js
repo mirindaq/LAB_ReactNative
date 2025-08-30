@@ -10,5 +10,5 @@ async function postData(url = "", data = {}) {
     const result = await response.json();
     console.log(result);
 }
-const newData = { userId: 1, title: "New Todo", completed: false };
+const newData = { userId: 1, title: "New Todo2", completed: false };
 postData("https://jsonplaceholder.typicode.com/todos", newData);
