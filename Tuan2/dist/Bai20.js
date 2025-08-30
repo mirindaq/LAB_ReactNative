@@ -3,10 +3,10 @@ const fetchUser20 = async (id) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve({ id, name: `User ${id}` });
-        }, 1000);
+        }, 2100);
     });
 };
-const fetchUserWithTimeout = async (id, timeout = 2000) => {
+const fetchUserWithTimeout = async (id, timeout) => {
     const timeoutPromise = new Promise((_, reject) => {
         setTimeout(() => reject("API call timed out!"), timeout);
     });
@@ -15,7 +15,7 @@ const fetchUserWithTimeout = async (id, timeout = 2000) => {
 };
 const runFetchWithTimeout = async () => {
     try {
-        const user = await fetchUserWithTimeout(1, 1500);
+        const user = await fetchUserWithTimeout(1, 2000);
         console.log(user);
     }
     catch (error) {
