@@ -1,10 +1,12 @@
 const simulateTaskWithError = (success: boolean): Promise<string> => {
   return new Promise((resolve, reject) => {
+    setTimeout(() => {
       if (success) {
         resolve("Task succeeded!");
       } else {
         reject("Task failed!");
       }
+    }, 1000);
   });
 };
 
