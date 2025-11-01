@@ -11,6 +11,7 @@ export default function HomeScreen() {
   const router = useRouter();
   const [data, setData] = useState<Expense[]>([]);  // ✅ khai báo kiểu của state
   const [searchText, setSearchText] = useState("");
+  const [filterType, setFilterType] = useState<"Tất cả" | "Thu" | "Chi">("Tất cả");
   const [refreshing, setRefreshing] = useState(false);
   const [syncing, setSyncing] = useState(false);
 
@@ -35,18 +36,27 @@ export default function HomeScreen() {
     load();
   }, []);
 
-  // Filter data dựa trên searchText
+  // Filter data dựa trên searchText và filterType
   const filteredData = useMemo(() => {
-    if (!searchText.trim()) {
-      return data;
+    let filtered = data;
+
+    // Filter theo type (Thu/Chi)
+    if (filterType !== "Tất cả") {
+      filtered = filtered.filter((item) => item.type === filterType);
     }
-    const searchLower = searchText.toLowerCase();
-    return data.filter(
-      (item) =>
-        item.title.toLowerCase().includes(searchLower) ||
-        item.type.toLowerCase().includes(searchLower)
-    );
-  }, [data, searchText]);
+
+    // Filter theo searchText
+    if (searchText.trim()) {
+      const searchLower = searchText.toLowerCase();
+      filtered = filtered.filter(
+        (item) =>
+          item.title.toLowerCase().includes(searchLower) ||
+          item.type.toLowerCase().includes(searchLower)
+      );
+    }
+
+    return filtered;
+  }, [data, searchText, filterType]);
 
   const handleSync = async () => {
     setSyncing(true);
@@ -73,6 +83,29 @@ export default function HomeScreen() {
         >
           <Text style={styles.trashIcon}>🗑️</Text>
         </TouchableOpacity>
+      </View>
+
+      {/* Filter Bar */}
+      <View style={styles.filterContainer}>
+        {(["Tất cả", "Thu", "Chi"] as const).map((type) => (
+          <TouchableOpacity
+            key={type}
+            style={[
+              styles.filterButton,
+              filterType === type && styles.filterButtonActive,
+            ]}
+            onPress={() => setFilterType(type)}
+          >
+            <Text
+              style={[
+                styles.filterText,
+                filterType === type && styles.filterTextActive,
+              ]}
+            >
+              {type}
+            </Text>
+          </TouchableOpacity>
+        ))}
       </View>
 
       {/* Search Bar */}
@@ -110,7 +143,9 @@ export default function HomeScreen() {
         )}
         ListEmptyComponent={
           <Text style={{ textAlign: "center", marginTop: 30 }}>
-            {searchText.trim() ? "Không tìm thấy kết quả" : "Chưa có dữ liệu"}
+            {searchText.trim() || filterType !== "Tất cả"
+              ? "Không tìm thấy kết quả"
+              : "Chưa có dữ liệu"}
           </Text>
         }
         refreshControl={
@@ -170,6 +205,36 @@ const styles = StyleSheet.create({
   },
   trashIcon: {
     fontSize: 24,
+  },
+  filterContainer: {
+    flexDirection: "row",
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    borderBottomColor: "#e0e0e0",
+    gap: 10,
+  },
+  filterButton: {
+    flex: 1,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#4CAF50",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  filterButtonActive: {
+    backgroundColor: "#4CAF50",
+  },
+  filterText: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#4CAF50",
+  },
+  filterTextActive: {
+    color: "#fff",
   },
   searchContainer: {
     paddingHorizontal: 20,
