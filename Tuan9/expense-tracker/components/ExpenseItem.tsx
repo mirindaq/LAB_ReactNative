@@ -1,11 +1,13 @@
 import { Expense } from "@/types/expense";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useRouter } from "expo-router";
 
 interface Props {
   item: Expense;
 }
 
 export default function ExpenseItem({ item }: Props) {
+  const router = useRouter();
   // Format số tiền với dấu phẩy
   const formatAmount = (amount: number) => {
     return amount.toLocaleString("vi-VN");
@@ -23,8 +25,20 @@ export default function ExpenseItem({ item }: Props) {
 
   const isIncome = item.type === "Thu";
 
+  const handlePress = () => {
+    router.push({
+      pathname: "/EditExpenseScreen",
+      params: {
+        id: item.id.toString(),
+        title: item.title,
+        amount: item.amount.toString(),
+        type: item.type,
+      },
+    });
+  };
+
   return (
-    <View style={styles.item}>
+    <TouchableOpacity style={styles.item} onPress={handlePress} activeOpacity={0.7}>
       <View style={styles.content}>
         <View style={styles.leftSection}>
           <View
@@ -56,7 +70,7 @@ export default function ExpenseItem({ item }: Props) {
           {isIncome ? "+" : "-"} {formatAmount(item.amount)} đ
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 

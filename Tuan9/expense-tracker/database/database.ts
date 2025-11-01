@@ -52,3 +52,17 @@ export const getExpenses = async (): Promise<Expense[]> => {
   return rows;
 };
 
+export const updateExpense = async (
+  id: number,
+  title: string,
+  amount: number,
+  type: string
+) => {
+  await ensureDBInitialized();
+  
+  await db.runAsync(
+    "UPDATE expenses SET title = ?, amount = ?, type = ? WHERE id = ?",
+    [title, amount, type, id]
+  );
+};
+
