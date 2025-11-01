@@ -77,12 +77,20 @@ export default function HomeScreen() {
         <View style={styles.titleContainer}>
           <Text style={styles.title}>EXPENSE TRACKER</Text>
         </View>
-        <TouchableOpacity
-          onPress={() => router.push("/TrashScreen")}
-          style={styles.trashButton}
-        >
-          <Text style={styles.trashIcon}>🗑️</Text>
-        </TouchableOpacity>
+        <View style={styles.headerRight}>
+          <TouchableOpacity
+            onPress={() => router.push("/StatisticsScreen")}
+            style={styles.statsButton}
+          >
+            <Text style={styles.statsIcon}>📊</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => router.push("/TrashScreen")}
+            style={styles.trashButton}
+          >
+            <Text style={styles.trashIcon}>🗑️</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
       {/* Filter Bar */}
@@ -197,6 +205,19 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
     textAlign: "center",
+  },
+  headerRight: {
+    flexDirection: "row",
+    gap: 10,
+    alignItems: "center",
+  },
+  statsButton: {
+    width: 40,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  statsIcon: {
+    fontSize: 24,
   },
   trashButton: {
     width: 40,
