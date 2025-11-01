@@ -1,5 +1,5 @@
-import { useCallback, useState } from "react";
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from "react-native";
+import { useCallback, useState, useMemo } from "react";
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput } from "react-native";
 import { useFocusEffect, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { getDeletedExpenses } from "@/database/database";
@@ -8,6 +8,7 @@ import { Expense } from "@/types/expense";
 export default function TrashScreen() {
   const router = useRouter();
   const [data, setData] = useState<Expense[]>([]);
+  const [searchText, setSearchText] = useState("");
 
   const load = async () => {
     const items = await getDeletedExpenses();
@@ -19,6 +20,19 @@ export default function TrashScreen() {
       load();
     }, [])
   );
+
+  // Filter data dựa trên searchText
+  const filteredData = useMemo(() => {
+    if (!searchText.trim()) {
+      return data;
+    }
+    const searchLower = searchText.toLowerCase();
+    return data.filter(
+      (item) =>
+        item.title.toLowerCase().includes(searchLower) ||
+        item.type.toLowerCase().includes(searchLower)
+    );
+  }, [data, searchText]);
 
   // Format số tiền với dấu phẩy
   const formatAmount = (amount: number) => {
@@ -85,13 +99,26 @@ export default function TrashScreen() {
         <View style={styles.backButton} />
       </View>
 
+      {/* Search Bar */}
+      <View style={styles.searchContainer}>
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Tìm kiếm theo tên hoặc loại..."
+          placeholderTextColor="#999"
+          value={searchText}
+          onChangeText={setSearchText}
+        />
+      </View>
+
       <FlatList
-        contentContainerStyle={{ padding: 20 }}
-        data={data}
+        contentContainerStyle={{ padding: 20, paddingTop: 10 }}
+        data={filteredData}
         keyExtractor={(item) => item.id.toString()}
         renderItem={renderItem}
         ListEmptyComponent={
-          <Text style={styles.emptyText}>Thùng rác trống</Text>
+          <Text style={styles.emptyText}>
+            {searchText.trim() ? "Không tìm thấy kết quả" : "Thùng rác trống"}
+          </Text>
         }
       />
     </SafeAreaView>
@@ -201,6 +228,22 @@ const styles = StyleSheet.create({
     marginTop: 30,
     fontSize: 16,
     color: "#757575",
+  },
+  searchContainer: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    borderBottomColor: "#e0e0e0",
+  },
+  searchInput: {
+    backgroundColor: "#F5F5F5",
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    fontSize: 16,
+    borderWidth: 1,
+    borderColor: "#ddd",
   },
 });
 
