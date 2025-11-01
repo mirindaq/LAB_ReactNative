@@ -66,3 +66,24 @@ export const updateExpense = async (
   );
 };
 
+export const deleteExpense = async (id: number) => {
+  await ensureDBInitialized();
+  
+  await db.runAsync(
+    "UPDATE expenses SET isDeleted = 1 WHERE id = ?",
+    [id]
+  );
+};
+
+export const getDeletedExpenses = async (): Promise<Expense[]> => {
+  await ensureDBInitialized();
+  
+  if (!db) return [];
+
+  const rows = await db.getAllAsync<Expense>(
+    "SELECT * FROM expenses WHERE isDeleted = 1 ORDER BY createdAt DESC"
+  );
+
+  return rows;
+};
+

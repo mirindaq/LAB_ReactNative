@@ -28,6 +28,12 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>EXPENSE TRACKER</Text>
+        <TouchableOpacity
+          onPress={() => router.push("/TrashScreen")}
+          style={styles.trashButton}
+        >
+          <Text style={styles.trashIcon}>🗑️</Text>
+        </TouchableOpacity>
       </View>
 
       <FlatList
@@ -37,6 +43,7 @@ export default function HomeScreen() {
         renderItem={({ item }) => (
           <ExpenseItem
             item={item}
+            onDelete={load}
           />
         )}
         ListEmptyComponent={<Text style={{ textAlign: "center", marginTop: 30 }}>Chưa có dữ liệu</Text>}
@@ -56,11 +63,22 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: "#4CAF50",
     paddingVertical: 18,
+    paddingHorizontal: 20,
     alignItems: "center",
     justifyContent: "center",
     elevation: 4,
+    flexDirection: "row",
+    position: "relative",
   },
   title: { color: "white", fontSize: 22, fontWeight: "bold" },
+  trashButton: {
+    position: "absolute",
+    right: 20,
+    padding: 8,
+  },
+  trashIcon: {
+    fontSize: 24,
+  },
   addButton: {
     position: "absolute",
     bottom: 20,

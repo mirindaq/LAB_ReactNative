@@ -1,12 +1,14 @@
 import { Expense } from "@/types/expense";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { useRouter } from "expo-router";
+import { deleteExpense } from "@/database/database";
 
 interface Props {
   item: Expense;
+  onDelete?: () => void;
 }
 
-export default function ExpenseItem({ item }: Props) {
+export default function ExpenseItem({ item, onDelete }: Props) {
   const router = useRouter();
   // Format số tiền với dấu phẩy
   const formatAmount = (amount: number) => {
@@ -37,8 +39,38 @@ export default function ExpenseItem({ item }: Props) {
     });
   };
 
+  const handleLongPress = () => {
+    Alert.alert(
+      "Xóa khoản Thu/Chi",
+      `Bạn có chắc muốn xóa "${item.title}"?`,
+      [
+        {
+          text: "Hủy",
+          style: "cancel",
+        },
+        {
+          text: "Xóa",
+          style: "destructive",
+          onPress: async () => {
+            await deleteExpense(item.id);
+            Alert.alert("✅ Đã xóa thành công!");
+            if (onDelete) {
+              onDelete();
+            }
+          },
+        },
+      ],
+      { cancelable: true }
+    );
+  };
+
   return (
-    <TouchableOpacity style={styles.item} onPress={handlePress} activeOpacity={0.7}>
+    <TouchableOpacity
+      style={styles.item}
+      onPress={handlePress}
+      onLongPress={handleLongPress}
+      activeOpacity={0.7}
+    >
       <View style={styles.content}>
         <View style={styles.leftSection}>
           <View
