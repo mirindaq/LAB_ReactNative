@@ -87,3 +87,12 @@ export const getDeletedExpenses = async (): Promise<Expense[]> => {
   return rows;
 };
 
+export const restoreExpense = async (id: number) => {
+  await ensureDBInitialized();
+  
+  await db.runAsync(
+    "UPDATE expenses SET isDeleted = 0 WHERE id = ?",
+    [id]
+  );
+};
+

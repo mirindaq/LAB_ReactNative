@@ -1,8 +1,8 @@
 import { useCallback, useState, useMemo } from "react";
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput, RefreshControl } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput, RefreshControl, Alert } from "react-native";
 import { useFocusEffect, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { getDeletedExpenses } from "@/database/database";
+import { getDeletedExpenses, restoreExpense } from "@/database/database";
 import { Expense } from "@/types/expense";
 
 export default function TrashScreen() {
@@ -56,11 +56,37 @@ export default function TrashScreen() {
     });
   };
 
+  const handleLongPress = (item: Expense) => {
+    Alert.alert(
+      "Khôi phục khoản Thu/Chi",
+      `Bạn có chắc muốn khôi phục "${item.title}"?`,
+      [
+        {
+          text: "Hủy",
+          style: "cancel",
+        },
+        {
+          text: "Khôi phục",
+          onPress: async () => {
+            await restoreExpense(item.id);
+            Alert.alert("✅ Đã khôi phục thành công!");
+            load(); // Reload danh sách sau khi khôi phục
+          },
+        },
+      ],
+      { cancelable: true }
+    );
+  };
+
   const renderItem = ({ item }: { item: Expense }) => {
     const isIncome = item.type === "Thu";
 
     return (
-      <View style={styles.item}>
+      <TouchableOpacity
+        style={styles.item}
+        onLongPress={() => handleLongPress(item)}
+        activeOpacity={0.7}
+      >
         <View style={styles.content}>
           <View style={styles.leftSection}>
             <View
@@ -92,7 +118,7 @@ export default function TrashScreen() {
             {isIncome ? "+" : "-"} {formatAmount(item.amount)} đ
           </Text>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
 
