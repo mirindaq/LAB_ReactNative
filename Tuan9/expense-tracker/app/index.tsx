@@ -1,16 +1,18 @@
 import { useCallback, useEffect, useState, useMemo } from "react";
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput, RefreshControl } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput, RefreshControl, Alert } from "react-native";
 import { useFocusEffect, useRouter } from "expo-router";
 import ExpenseItem from "../components/ExpenseItem";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { getExpenses } from "@/database/database";
-import { Expense } from "@/types/expense";  // ✅ thêm dòng này
+import { Expense } from "@/types/expense";
+import { syncToApi } from "@/services/apiSync";
 
 export default function HomeScreen() {
   const router = useRouter();
   const [data, setData] = useState<Expense[]>([]);  // ✅ khai báo kiểu của state
   const [searchText, setSearchText] = useState("");
   const [refreshing, setRefreshing] = useState(false);
+  const [syncing, setSyncing] = useState(false);
 
   const load = async () => {
     const items = await getExpenses();
@@ -45,10 +47,26 @@ export default function HomeScreen() {
         item.type.toLowerCase().includes(searchLower)
     );
   }, [data, searchText]);
+
+  const handleSync = async () => {
+    setSyncing(true);
+    const result = await syncToApi();
+    setSyncing(false);
+    Alert.alert(result.success ? "Thành công" : "Lỗi", result.message);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>EXPENSE TRACKER</Text>
+        <TouchableOpacity
+          onPress={() => router.push("/SyncSettingsScreen")}
+          style={styles.settingsButton}
+        >
+          <Text style={styles.settingsIcon}>⚙️</Text>
+        </TouchableOpacity>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>EXPENSE TRACKER</Text>
+        </View>
         <TouchableOpacity
           onPress={() => router.push("/TrashScreen")}
           style={styles.trashButton}
@@ -66,6 +84,18 @@ export default function HomeScreen() {
           value={searchText}
           onChangeText={setSearchText}
         />
+      </View>
+
+      {/* Nút đồng bộ */}
+      <View style={styles.syncContainer}>
+        <TouchableOpacity
+          onPress={handleSync}
+          style={[styles.syncButton, syncing && styles.syncButtonDisabled]}
+          disabled={syncing}
+        >
+          <Text style={styles.syncIcon}>{syncing ? "⏳" : "🔄"}</Text>
+          <Text style={styles.syncText}>{syncing ? "Đang đồng bộ..." : "Đồng bộ"}</Text>
+        </TouchableOpacity>
       </View>
 
       <FlatList
@@ -108,17 +138,35 @@ const styles = StyleSheet.create({
     backgroundColor: "#4CAF50",
     paddingVertical: 18,
     paddingHorizontal: 20,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    elevation: 4,
+  },
+  settingsButton: {
+    width: 40,
     alignItems: "center",
     justifyContent: "center",
-    elevation: 4,
-    flexDirection: "row",
-    position: "relative",
   },
-  title: { color: "white", fontSize: 22, fontWeight: "bold" },
+  settingsIcon: {
+    fontSize: 24,
+  },
+  titleContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 10,
+  },
+  title: {
+    color: "white",
+    fontSize: 22,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
   trashButton: {
-    position: "absolute",
-    right: 20,
-    padding: 8,
+    width: 40,
+    alignItems: "center",
+    justifyContent: "center",
   },
   trashIcon: {
     fontSize: 24,
@@ -138,6 +186,35 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderWidth: 1,
     borderColor: "#ddd",
+  },
+  syncContainer: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    borderBottomColor: "#e0e0e0",
+  },
+  syncButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#2196F3",
+    borderRadius: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    gap: 8,
+  },
+  syncButtonDisabled: {
+    backgroundColor: "#BBDEFB",
+    opacity: 0.7,
+  },
+  syncIcon: {
+    fontSize: 18,
+  },
+  syncText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "600",
   },
   addButton: {
     position: "absolute",
