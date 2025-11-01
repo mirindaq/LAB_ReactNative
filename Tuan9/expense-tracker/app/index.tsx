@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState, useMemo } from "react";
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput, RefreshControl } from "react-native";
 import { useFocusEffect, useRouter } from "expo-router";
 import ExpenseItem from "../components/ExpenseItem";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -10,11 +10,18 @@ export default function HomeScreen() {
   const router = useRouter();
   const [data, setData] = useState<Expense[]>([]);  // ✅ khai báo kiểu của state
   const [searchText, setSearchText] = useState("");
+  const [refreshing, setRefreshing] = useState(false);
 
   const load = async () => {
     const items = await getExpenses();
     setData(items);
   };
+
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await load();
+    setRefreshing(false);
+  }, []);
 
   useFocusEffect(
     useCallback(() => {
@@ -75,6 +82,14 @@ export default function HomeScreen() {
           <Text style={{ textAlign: "center", marginTop: 30 }}>
             {searchText.trim() ? "Không tìm thấy kết quả" : "Chưa có dữ liệu"}
           </Text>
+        }
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor="#81C784"
+            colors={["#81C784"]}
+          />
         }
       />
 

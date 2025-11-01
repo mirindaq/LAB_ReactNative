@@ -1,5 +1,5 @@
 import { useCallback, useState, useMemo } from "react";
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput, RefreshControl } from "react-native";
 import { useFocusEffect, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { getDeletedExpenses } from "@/database/database";
@@ -9,11 +9,18 @@ export default function TrashScreen() {
   const router = useRouter();
   const [data, setData] = useState<Expense[]>([]);
   const [searchText, setSearchText] = useState("");
+  const [refreshing, setRefreshing] = useState(false);
 
   const load = async () => {
     const items = await getDeletedExpenses();
     setData(items);
   };
+
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await load();
+    setRefreshing(false);
+  }, []);
 
   useFocusEffect(
     useCallback(() => {
@@ -119,6 +126,14 @@ export default function TrashScreen() {
           <Text style={styles.emptyText}>
             {searchText.trim() ? "Không tìm thấy kết quả" : "Thùng rác trống"}
           </Text>
+        }
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor="#81C784"
+            colors={["#81C784"]}
+          />
         }
       />
     </SafeAreaView>
